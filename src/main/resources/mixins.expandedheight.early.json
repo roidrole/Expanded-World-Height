@@ -1,0 +1,25 @@
+{
+	"package": "roidrole.expandedheight.mixins.minecraft",
+	"required": true,
+	"refmap": "mixins.expandedheight.refmap.json",
+	"target": "@env(DEFAULT)",
+	"minVersion": "0.8.5",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"MinecraftServerMixin",
+		"MixinChunk",
+		"MixinChunkCache",
+		"MixinChunkPrimer",
+		"MixinPlayerChunkMapEntry",
+		"MixinSPacketChunkData",
+		"MixinWorld"
+	],
+	"server": [],
+	"client": [
+		"MixinDebugRendererChunkBorder",
+		"MixinNetHandlerPlayClient",
+		"MixinRenderGlobal",
+		"MixinViewFrustrum",
+		"MixinWorldClient"
+	]
+}

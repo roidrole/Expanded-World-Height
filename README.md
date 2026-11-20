@@ -1,10 +1,14 @@
-My mod template, slightly edited from Cleanroom's.
+## Expanded World Height
 
-This template runs on Java 21! Currently utilizies **Gradle 8.12** + **[RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle) 1.4.1** + **Forge 14.23.5.2847**.
+A mod that extends the vanilla world height. A more compatible alternative to Cubic Chunk and Depths Update
 
-With **coremod and mixin support** that is easy to configure.
+It achieves this compatibility with limitations compared to both other mods. Namely:
+- Negative heights are out of scope
+- No custom worldgen is in this mod
+- Some mods will have support PRs
 
-### Notes:
-- Dependencies script in [gradle/scripts/dependencies.gradle](gradle/scripts/dependencies.gradle), explanations are commented in the file.
-- Publishing script in [gradle/scripts/publishing.gradle](gradle/scripts/publishing.gradle).
-- When writing Mixins on IntelliJ, it is advisable to use latest [MinecraftDev Fork for RetroFuturaGradle](https://github.com/eigenraven/MinecraftDev/releases).
+## Mod dev
+You shouldn't need to depend on this mod for anything. Just make sure to use World.getHeight(), a vanilla method, instead of hard-coding 256 as the world height. The min height can still be assumed to be 0. If your mod needs to have higher worlds, you may depend on this mod. An API allowing to force per-dimension height will likely come in the future
+
+## Modpack devs
+For better results, you should consider overhauling worldgen to benefit from the additional world height. Worldgen mods tend to assume 255 to be the build limit. If they do, make an issue so they can get patched.
