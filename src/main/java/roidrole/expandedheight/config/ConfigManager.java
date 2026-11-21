@@ -39,7 +39,7 @@ public class ConfigManager {
 		if(height == 512){
 			return 0xFFFFFFFF;
 		}
-		return 1 << (height/16) - 1;
+		return (1 << (height/16)) - 1;
 	}
 
 	static {
@@ -87,7 +87,11 @@ public class ConfigManager {
 				while (jsonReader.peek() != JsonToken.END_OBJECT) {
 					int name = Integer.parseInt(jsonReader.nextName());
 					int height = jsonReader.nextInt();
-					//Height limit because of BlockPos.toLong()
+					if ((height & 0xF) != 0){
+						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Should be a multiple of 16!");
+						height |= 0xF;
+						height += 1;
+					}
 					if (height > maxHeight) {
 						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Capping it to " + maxHeight);
 						height = maxHeight;
