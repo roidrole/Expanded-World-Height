@@ -26,6 +26,18 @@ public abstract class MixinWorld {
 
 	@ModifyConstant(
 		method = {
+			"canBlockFreezeBody",
+			"canSnowAtBody"
+		},
+		constant = @Constant(intValue = 256),
+		remap = false
+	)
+	private int useActualHeightNoRemap(int original){
+		return this.getHeight();
+	}
+
+	@ModifyConstant(
+		method = {
 			"getLight(Lnet/minecraft/util/math/BlockPos;)I",
 			"getLight(Lnet/minecraft/util/math/BlockPos;Z)I"
 		},
@@ -33,7 +45,7 @@ public abstract class MixinWorld {
 			intValue = 255
 		)
 	)
-	private int useActualHeight2(int original){
+	private int useActualHeightMinusOne(int original){
 		return this.getHeight() - 1;
 	}
 
