@@ -4,7 +4,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import roidrole.expandedheight.ConfigManager;
+import roidrole.expandedheight.config.ConfigManager;
 
 @Mixin(ChunkPrimer.class)
 public abstract class MixinChunkPrimer {
@@ -15,7 +15,7 @@ public abstract class MixinChunkPrimer {
 		)
 	)
 	private int useActualSize(int original){
-		return ConfigManager.primerSize;
+		return ConfigManager.primerVolume;
 	}
 
 	@ModifyConstant(

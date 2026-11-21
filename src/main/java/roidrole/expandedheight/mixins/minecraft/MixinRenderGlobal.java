@@ -22,4 +22,14 @@ public abstract class MixinRenderGlobal {
 	private int actualHeight(int constant){
 		return this.world.getHeight();
 	}
+
+	@ModifyConstant(
+		method = "renderEntities",
+		constant = @Constant(
+			doubleValue = 256.0d
+		)
+	)
+	private double actualHeight(double constant){
+		return this.world.getHeight();
+	}
 }

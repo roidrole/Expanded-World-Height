@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import roidrole.expandedheight.ConfigManager;
+import roidrole.expandedheight.config.ConfigManager;
 
 @Mixin(Chunk.class)
 public abstract class MixinChunk {
@@ -37,12 +37,22 @@ public abstract class MixinChunk {
 	}
 
 	@ModifyConstant(
-		method = {"relightBlock", "isEmptyBetween"},
+		method = "relightBlock",
 		constant = @Constant(
 			intValue = 255
 		)
 	)
 	private int actualHeight3(int constant){
 		return ConfigManager.heightMask;
+	}
+
+	@ModifyConstant(
+		method = "isEmptyBetween",
+		constant = @Constant(
+			intValue = 255
+		)
+	)
+	private int actualHeight4(int constant){
+		return this.world.getHeight() - 1;
 	}
 }

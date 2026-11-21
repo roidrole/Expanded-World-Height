@@ -23,14 +23,4 @@ public abstract class MixinViewFrustrum {
 	private int actualHeight(int constant){
 		return this.world.getHeight()/16;
 	}
-
-	@ModifyConstant(
-		method = "updateChunkPositions",
-		constant = @Constant(
-			intValue = 16
-		)
-	)
-	private int actualHeight2(int constant){
-		return this.world.getHeight()/16;
-	}
 }

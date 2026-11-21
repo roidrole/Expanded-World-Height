@@ -6,9 +6,10 @@ import net.minecraft.world.chunk.Chunk;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import roidrole.expandedheight.config.ConfigManager;
 
 @Mixin(SPacketChunkData.class)
-public class MixinSPacketChunkData {
+public abstract class MixinSPacketChunkData {
 	@ModifyConstant(
 		method = "<init>(Lnet/minecraft/world/chunk/Chunk;I)V",
 		constant = @Constant(
@@ -16,6 +17,6 @@ public class MixinSPacketChunkData {
 		)
 	)
 	private int useActualHeight(int original, @Local(argsOnly = true) Chunk chunkIn){
-		return chunkIn.getWorld().getHeight() * 256 - 1;
+		return ConfigManager.getHeightMask(chunkIn.getWorld().getHeight());
 	}
 }
