@@ -6,12 +6,12 @@
 	"minVersion": "0.8.5",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"MixinMinecraftServer",
 		"MixinAnvilChunkLoader",
 		"MixinChunk",
 		"MixinChunkCache",
 		"MixinChunkPrimer",
 		"MixinCommandBase",
+		"MixinMinecraftServer",
 		"MixinPlayerChunkMapEntry",
 		"MixinSPacketChunkData",
 		"MixinWorld",
@@ -19,6 +19,7 @@
 	],
 	"server": [],
 	"client": [
+		"GuiOverlayDebugMixin",
 		"MixinDebugRendererChunkBorder",
 		"MixinNetHandlerPlayClient",
 		"MixinRenderGlobal",
