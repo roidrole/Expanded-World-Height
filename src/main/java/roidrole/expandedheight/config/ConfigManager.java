@@ -63,7 +63,7 @@ public class ConfigManager {
 				writer.append("\n\t//Here are overrides for per-dimension height.");
 				writer.append("\n\t//Keys correspond to the dimension id, values to the maximal height");
 				jsonWriter.name("0");
-				jsonWriter.value(ExpandedHeightConfig.defaultWorldHeight);
+				jsonWriter.value(512);
 				jsonWriter.endObject();
 			} catch (IOException e){
 				throw new RuntimeException(e);
