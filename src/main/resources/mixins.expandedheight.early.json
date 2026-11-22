@@ -11,6 +11,7 @@
 		"MixinChunkCache",
 		"MixinChunkPrimer",
 		"MixinCommandBase",
+		"MixinCommandFill",
 		"MixinMinecraftServer",
 		"MixinNetHandlerPlayServer",
 		"MixinPlayerChunkMapEntry",
