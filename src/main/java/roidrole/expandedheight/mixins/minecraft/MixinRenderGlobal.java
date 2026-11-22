@@ -32,4 +32,14 @@ public abstract class MixinRenderGlobal {
 	private double actualHeight(double constant){
 		return this.world.getHeight();
 	}
+
+	@ModifyConstant(
+		method = "setupTerrain",
+		constant = @Constant(
+			intValue = 248
+		)
+	)
+	private int clampToCorrectHeight(int original){
+		return this.world.getHeight() - 8;
+	}
 }
