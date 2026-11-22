@@ -9,8 +9,6 @@ import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import java.io.*;
 
 public class ConfigManager {
-	public static final int heightMask;
-
 	// The max volume of a chunk primer. Should be 16×16×max_height
 	public static final int primerVolume;
 	public static final int primerYBits;
@@ -25,15 +23,6 @@ public class ConfigManager {
 	public static final int maxHeight = 512;
 
 	public static final Int2IntMap worldHeight;
-
-	private static int setAllBits(int value){
-		value |= (value >> 1);
-		value |= (value >> 2);
-		value |= (value >> 4);
-		value |= (value >> 8);
-		value |= (value >> 16);
-		return value;
-	}
 
 	public static int getHeightMask(int height){
 		if(height == 512){
@@ -110,7 +99,5 @@ public class ConfigManager {
 		primerVolume = 256 * primerHeight;
 		primerYBits = 32 - Integer.numberOfLeadingZeros(primerHeight - 1);
 		buildLimit = globalMaxHeight;
-		heightMask = setAllBits(globalMaxHeight - 1);
-
 	}
 }

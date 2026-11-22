@@ -43,7 +43,7 @@ public abstract class MixinChunk {
 		)
 	)
 	private int actualHeight3(int constant){
-		return ConfigManager.heightMask;
+		return ConfigManager.getHeightMask(this.world.getHeight());
 	}
 
 	@ModifyConstant(
