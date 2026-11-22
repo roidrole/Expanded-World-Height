@@ -1,5 +1,6 @@
 package roidrole.expandedheight.config;
 
+import com.google.gson.JsonParseException;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
@@ -42,7 +43,7 @@ public class ConfigManager {
 				tempFile = File.createTempFile("heights", "json");
 				tempFile.deleteOnExit();
 			} catch (IOException e) {
-				throw new RuntimeException(e);
+				throw new RuntimeException("Error creating temporary config file", e);
 			}
 			try (Writer writer = new FileWriter(tempFile)) {
 				JsonWriter jsonWriter = new JsonWriter(writer);
@@ -55,7 +56,7 @@ public class ConfigManager {
 				jsonWriter.value(512);
 				jsonWriter.endObject();
 			} catch (IOException e){
-				throw new RuntimeException(e);
+				throw new RuntimeException("Error writing default config", e);
 			}
 			try (
 				FileInputStream srcStream = new FileInputStream(tempFile);
@@ -63,7 +64,7 @@ public class ConfigManager {
 			){
 				destStream.getChannel().transferFrom(srcStream.getChannel(), 0, srcStream.getChannel().size());
 			} catch (IOException e) {
-				throw new RuntimeException(e);
+				throw new RuntimeException("Error copying default config", e);
 			}
 
 
@@ -91,8 +92,10 @@ public class ConfigManager {
 					worldHeight.put(name, height);
 				}
 				jsonReader.endObject();
+			} catch (JsonParseException|NumberFormatException|IllegalStateException e) {
+				throw new RuntimeException("Malformed config file!", e);
 			} catch (IOException e) {
-				throw new RuntimeException(e);
+				throw new RuntimeException("Error reading config, it is likely malformed", e);
 			}
 		}
 		primerHeight = globalMaxHeight;

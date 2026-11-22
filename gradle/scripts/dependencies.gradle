@@ -26,7 +26,7 @@ repositories {
         }
     }
     maven {
-        url = "https://maven.bawnorton.com/releases"
+        url = "https://ecdcaeb.github.io/maven/"
     }
     mavenLocal() // Must be last for caching to work
 }
@@ -55,6 +55,7 @@ dependencies {
     //runtimeOnly 'curse.maven:rltweaker2-734347:6518808'
     //runtimeOnly 'curse.maven:realistic-terrain-generation-237989:2782568'
     //runtimeOnly 'curse.maven:fluidlogged-api-485654:8445863'
+    runtimeOnly 'net.optifine:optifine:1.12.2-HD_U_G5_unpatched_srg'
 
     //Supported mods
     compileOnly rfg.deobf(files("libs/01-celeritas-forge-mc12.2-2.5.0-dev.jar"))
@@ -66,6 +67,7 @@ dependencies {
     compileOnly rfg.deobf('curse.maven:rltweaker2-734347:6518808')
     compileOnly rfg.deobf('curse.maven:realistic-terrain-generation-237989:2782568')
     compileOnly rfg.deobf('curse.maven:fluidlogged-api-485654:8445863')
+    compileOnly rfg.deobf('net.optifine:optifine:1.12.2-HD_U_G5_unpatched_srg')
 
 
     // Example - Dependency descriptor:
