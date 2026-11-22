@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import roidrole.expandedheight.config.ConfigManager;
 
-@Mixin(Chunk.class)
+@Mixin(value = Chunk.class, priority = 1200)
 public abstract class MixinChunk {
 	@Shadow
 	@Final

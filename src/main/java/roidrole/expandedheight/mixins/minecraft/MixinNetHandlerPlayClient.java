@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(NetHandlerPlayClient.class)
 public abstract class MixinNetHandlerPlayClient {
 	@Shadow
-	private WorldClient world;
+	public WorldClient world;
 
 	@ModifyConstant(
 		method = "handleChunkData",

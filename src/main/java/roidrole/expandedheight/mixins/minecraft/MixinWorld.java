@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(World.class)
+@Mixin(value = World.class, priority = 1200)
 public abstract class MixinWorld {
 	@Shadow
 	public abstract int getHeight();
@@ -48,5 +48,4 @@ public abstract class MixinWorld {
 	private int useActualHeightMinusOne(int original){
 		return this.getHeight() - 1;
 	}
-
 }

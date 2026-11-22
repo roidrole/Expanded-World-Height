@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(ChunkCache.class)
+@Mixin(value = ChunkCache.class, priority = 1200)
 public abstract class MixinChunkCache {
 
 	@Shadow
