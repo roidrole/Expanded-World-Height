@@ -15,7 +15,7 @@ public class ConfigManager {
 	public static final int primerYBits;
 	public static final int primerHeight;
 
-	// This is common to all worlds. Use only in NetServerPlayHandler. Deeper depths uses max unconditionally
+	// This is common to all worlds. Use only in NetServerPlayHandler
 	public static final int buildLimit;
 
 	// Because of SPacketChunkData and PlayerChunkMapEntry, 512 is the limit
