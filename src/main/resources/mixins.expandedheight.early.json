@@ -12,6 +12,7 @@
 		"MixinChunkPrimer",
 		"MixinCommandBase",
 		"MixinMinecraftServer",
+		"MixinNetHandlerPlayServer",
 		"MixinPlayerChunkMapEntry",
 		"MixinSPacketChunkData",
 		"MixinWorld",
@@ -19,8 +20,8 @@
 	],
 	"server": [],
 	"client": [
-		"GuiOverlayDebugMixin",
 		"MixinDebugRendererChunkBorder",
+		"MixinGuiOverlayDebug",
 		"MixinNetHandlerPlayClient",
 		"MixinRenderGlobal",
 		"MixinViewFrustrum",

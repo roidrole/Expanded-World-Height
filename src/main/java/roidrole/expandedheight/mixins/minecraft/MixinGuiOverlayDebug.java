@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(GuiOverlayDebug.class)
-public abstract class GuiOverlayDebugMixin {
+public abstract class MixinGuiOverlayDebug {
 	@Shadow
 	@Final
 	private Minecraft mc;
