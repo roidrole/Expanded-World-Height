@@ -41,6 +41,10 @@ public class ConfigManager {
 		return height;
 	}
 
+	public static int getOverworldHeight(){
+		return worldHeight.get(0);
+	}
+
 	static {
 		worldHeight = new Int2IntOpenHashMap();
 		worldHeight.defaultReturnValue(ExpandedHeightConfig.defaultWorldHeight);
