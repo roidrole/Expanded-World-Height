@@ -44,8 +44,7 @@ dependencies {
     implementation 'com.cleanroommc:configanytime:3.0'
 
 
-    //Celeritas is in /mods/ of obfuscated
-    //runtimeOnly files("libs/01-celeritas-forge-mc12.2-2.5.0-dev.jar")
+    //Celeritas requires running in Prism
     runtimeOnly 'curse.maven:reid-629017:8029704'
     //runtimeOnly 'curse.maven:nothirium-624960:7441674'
     //runtimeOnly 'curse.maven:renderlib-624967:6461209'

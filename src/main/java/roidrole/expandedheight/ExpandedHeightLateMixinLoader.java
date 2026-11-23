@@ -20,6 +20,8 @@ public class ExpandedHeightLateMixinLoader implements ILateMixinLoader {
 
 	@Override
 	public boolean shouldMixinConfigQueue(Context context) {
-		return context.isModPresent(context.mixinConfig().split("\\.")[2]);
+		String mixinConfig = context.mixinConfig();
+		String modid = mixinConfig.substring("mixins.expandedheight.".length(), mixinConfig.length() - ".json".length());
+		return context.isModPresent(modid);
 	}
 }

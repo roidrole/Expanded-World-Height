@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import roidrole.expandedheight.config.ConfigManager;
 
 @Mixin(IFluidStatePrimer.class)
-public abstract class IFluidStatePrimerMixin {
+public abstract class MixinIFluidStatePrimer {
 	@ModifyConstant(
 		method = "<init>",
 		constant = @Constant(intValue = 65536),
