@@ -25,11 +25,20 @@ public class ConfigManager {
 
 	public static final Int2IntMap worldHeight;
 
-	public static int getHeightMask(int height){
+	public static int getHeightSectionMask(int height){
 		if(height == 512){
 			return 0xFFFFFFFF;
 		}
 		return (1 << (height/16)) - 1;
+	}
+
+	public static int getMask(int height){
+		height |= (height >> 1);
+		height |= (height >> 2);
+		height |= (height >> 4);
+		height |= (height >> 8);
+		height |= (height >> 16);
+		return height;
 	}
 
 	static {
@@ -68,7 +77,7 @@ public class ConfigManager {
 			}
 
 
-			globalMaxHeight = ExpandedHeightConfig.defaultWorldHeight;
+			globalMaxHeight = 512;
 		} else {
 			try (Reader reader = new FileReader(heightFile)) {
 				JsonReader jsonReader = new JsonReader(reader);

@@ -41,7 +41,7 @@ public abstract class MixinPlayerChunkMapEntry {
 		)
 	)
 	private int useActualHeight(int constant){
-		return ConfigManager.getHeightMask(this.playerChunkMap.getWorldServer().getHeight());
+		return ConfigManager.getHeightSectionMask(this.playerChunkMap.getWorldServer().getHeight());
 	}
 
 	//Use an int array to have more bits so height can be packed in 24 bits instead of 8

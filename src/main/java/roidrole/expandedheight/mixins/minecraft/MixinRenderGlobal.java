@@ -7,7 +7,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(RenderGlobal.class)
+//priority > 1000 so it's after Celeritas
+@Mixin(value = RenderGlobal.class, priority = 1200)
 public abstract class MixinRenderGlobal {
 
 	@Shadow

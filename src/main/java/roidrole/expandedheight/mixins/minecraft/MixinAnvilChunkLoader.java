@@ -13,7 +13,7 @@ public abstract class MixinAnvilChunkLoader {
 		method = "readChunkFromNBT",
 		constant = @Constant(intValue = 16)
 	)
-	private int useWorldHeight(int constant, @Local(argsOnly = true)World worldIn){
+	private int useWorldHeight(int constant, @Local(argsOnly = true) World worldIn){
 		return worldIn.getHeight()/16;
 	}
 }

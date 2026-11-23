@@ -1,6 +1,6 @@
 package roidrole.expandedheight;
 
-import net.minecraftforge.fml.common.Loader;
+import zone.rong.mixinbooter.Context;
 import zone.rong.mixinbooter.ILateMixinLoader;
 
 import java.util.Arrays;
@@ -12,7 +12,6 @@ public class ExpandedHeightLateMixinLoader implements ILateMixinLoader {
 		return Arrays.asList(
 			"mixins.expandedheight.celeritas.json",
 			"mixins.expandedheight.fbp.json",
-			"mixins.expandedheight.fluidlogged_api.json",
 			"mixins.expandedheight.nothirium.json",
 			"mixins.expandedheight.rltweaker.json",
 			"mixins.expandedheight.rtg.json"
@@ -20,7 +19,7 @@ public class ExpandedHeightLateMixinLoader implements ILateMixinLoader {
 	}
 
 	@Override
-	public boolean shouldMixinConfigQueue(String mixinConfig) {
-		return Loader.isModLoaded(mixinConfig.split("\\.")[2]);
+	public boolean shouldMixinConfigQueue(Context context) {
+		return context.isModPresent(context.mixinConfig().split("\\.")[2]);
 	}
 }

@@ -17,6 +17,6 @@ public abstract class MixinSPacketChunkData {
 		)
 	)
 	private int useActualHeight(int original, @Local(argsOnly = true) Chunk chunkIn){
-		return ConfigManager.getHeightMask(chunkIn.getWorld().getHeight());
+		return ConfigManager.getHeightSectionMask(chunkIn.getWorld().getHeight());
 	}
 }

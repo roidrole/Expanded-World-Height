@@ -1,17 +1,28 @@
 package roidrole.expandedheight;
 
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import zone.rong.mixinbooter.Context;
 import zone.rong.mixinbooter.IEarlyMixinLoader;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 public class ExpandedHeightEarlyMixinLoader implements IFMLLoadingPlugin, IEarlyMixinLoader {
 	@Override
 	public List<String> getMixinConfigs() {
-		return Collections.singletonList("mixins.expandedheight.early.json");
+		return Arrays.asList(
+			"mixins.expandedheight.early.vanilla.json",
+			"mixins.expandedheight.early.fluidlogged_api.json"
+		);
+	}
+
+	@Override
+	public boolean shouldMixinConfigQueue(Context context) {
+		String mixinConfig = context.mixinConfig();
+		String modid = mixinConfig.substring("mixins.expandedheight.early.".length(), mixinConfig.length() - ".json".length());
+		return modid.equals("vanilla") || context.isModPresent(modid);
 	}
 
 	@Override

@@ -45,7 +45,7 @@ dependencies {
 
 
     //Celeritas is in /mods/ of obfuscated
-    //OptiFine is in /mods/ of run
+    //runtimeOnly files("libs/01-celeritas-forge-mc12.2-2.5.0-dev.jar")
     runtimeOnly 'curse.maven:reid-629017:8029704'
     //runtimeOnly 'curse.maven:nothirium-624960:7441674'
     //runtimeOnly 'curse.maven:renderlib-624967:6461209'
@@ -54,7 +54,7 @@ dependencies {
     //runtimeOnly 'curse.maven:red-core-873867:7455761'
     //runtimeOnly 'curse.maven:rltweaker2-734347:6518808'
     //runtimeOnly 'curse.maven:realistic-terrain-generation-237989:2782568'
-    //runtimeOnly 'curse.maven:fluidlogged-api-485654:8445863'
+    runtimeOnly 'curse.maven:fluidlogged-api-485654:8445863'
     //runtimeOnly 'net.optifine:optifine:1.12.2-HD_U_G5_unpatched_srg'
 
     //Supported mods
