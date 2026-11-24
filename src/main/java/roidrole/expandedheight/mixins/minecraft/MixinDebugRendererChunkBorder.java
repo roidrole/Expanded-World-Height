@@ -24,4 +24,15 @@ public abstract class MixinDebugRendererChunkBorder {
 	private int actualHeight(int constant){
 		return this.minecraft.world.getHeight();
 	}
+
+	@ModifyConstant(
+		method = "render",
+		constant = @Constant(
+			doubleValue = 256.0D
+		)
+	)
+	private double actualHeight(double constant){
+		return this.minecraft.world.getHeight();
+	}
+
 }
