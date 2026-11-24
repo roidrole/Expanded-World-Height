@@ -12,13 +12,13 @@ import javax.annotation.Nonnull;
 
 public class ExtendedHeightFluidStateCapability implements IFluidStateCapability {
 	private final FluidStateCapabilityVanilla[] parts;
-	private final int offsetX;
-	private final int offsetZ;
+	private final int chunkX;
+	private final int chunkZ;
 
 
 	public ExtendedHeightFluidStateCapability(Chunk chunk) {
-		this.offsetX = chunk.x << 4;
-		this.offsetZ = chunk.z << 4;
+		this.chunkX = chunk.x;
+		this.chunkZ = chunk.z;
 		World world = chunk.getWorld();
 		int height;
 		if(world == null){
@@ -29,7 +29,7 @@ public class ExtendedHeightFluidStateCapability implements IFluidStateCapability
 		int partCount = ((height - 1)/256) + 1;
 		this.parts = new FluidStateCapabilityVanilla[partCount];
 		for (int i = 0; i < partCount; i++) {
-			parts[i] = new FluidStateCapabilityVanilla(chunk.x, chunk.z);
+			parts[i] = new FluidStateCapabilityVanilla(this.chunkX, this.chunkZ);
 		}
 	}
 
@@ -60,7 +60,7 @@ public class ExtendedHeightFluidStateCapability implements IFluidStateCapability
 		NBTTagList list = (NBTTagList) nbt;
 		int length = list.tagCount();
 		for (int i = 0; i < length; i++) {
-			FluidStateCapabilityVanilla cap = new FluidStateCapabilityVanilla(this.offsetX, this.offsetZ);
+			FluidStateCapabilityVanilla cap = new FluidStateCapabilityVanilla(this.chunkX, this.chunkZ);
 			cap.deserializeNBT(list.get(i));
 			parts[i] = cap;
 		}
