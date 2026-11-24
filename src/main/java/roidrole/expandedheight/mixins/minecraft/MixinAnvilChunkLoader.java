@@ -1,6 +1,5 @@
 package roidrole.expandedheight.mixins.minecraft;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,7 +12,7 @@ public abstract class MixinAnvilChunkLoader {
 		method = "readChunkFromNBT",
 		constant = @Constant(intValue = 16)
 	)
-	private int useWorldHeight(int constant, @Local(argsOnly = true) World worldIn){
+	private int useWorldHeight(int constant, World worldIn){
 		return worldIn.getHeight()/16;
 	}
 }

@@ -1,8 +1,8 @@
 package roidrole.expandedheight.mixins.minecraft;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.command.CommandFill;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -13,7 +13,7 @@ public abstract class MixinCommandFill {
 		method = "execute",
 		constant = @Constant(intValue = 256)
 	)
-	private int useWorldHeight(int original, @Local(argsOnly = true) ICommandSender sender){
+	private int useWorldHeight(int original, MinecraftServer server, ICommandSender sender){
 		return sender.getEntityWorld().getHeight();
 	}
 }

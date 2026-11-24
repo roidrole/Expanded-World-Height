@@ -1,6 +1,5 @@
 package roidrole.expandedheight.mixins.minecraft;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +18,7 @@ public abstract class MixinCommandBase {
 			intValue = 256
 		)
 	)
-	private static int actualHeight(int constant, @Local(argsOnly = true) ICommandSender sender){
+	private static int actualHeight(int constant, ICommandSender sender){
 		return sender.getEntityWorld().getHeight();
 	}
 }

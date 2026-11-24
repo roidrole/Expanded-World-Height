@@ -53,7 +53,7 @@ dependencies {
     //runtimeOnly 'curse.maven:red-core-873867:7455761'
     //runtimeOnly 'curse.maven:rltweaker2-734347:6518808'
     //runtimeOnly 'curse.maven:realistic-terrain-generation-237989:2782568'
-    runtimeOnly 'curse.maven:fluidlogged-api-485654:8445863'
+    //runtimeOnly 'curse.maven:fluidlogged-api-485654:8445863
     //runtimeOnly 'net.optifine:optifine:1.12.2-HD_U_G5_unpatched_srg'
 
     //Supported mods

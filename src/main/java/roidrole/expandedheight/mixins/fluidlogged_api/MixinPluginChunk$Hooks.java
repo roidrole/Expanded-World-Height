@@ -1,6 +1,5 @@
 package roidrole.expandedheight.mixins.fluidlogged_api;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import git.jbredwards.fluidlogged_api.mod.asm.iface.IHardcodedCapability;
 import git.jbredwards.fluidlogged_api.mod.asm.plugins.vanilla.world.PluginChunk;
 import net.minecraft.world.chunk.Chunk;
@@ -28,7 +27,7 @@ public abstract class MixinPluginChunk$Hooks {
 		constant = @Constant(intValue = 256),
 		remap = false
 	)
-	private static int useWorldHeight(int constant, @Local(argsOnly = true) Chunk chunk){
+	private static int useWorldHeight(int constant, @Nonnull Chunk chunk){
 		return chunk.getWorld().getHeight();
 	}
 }

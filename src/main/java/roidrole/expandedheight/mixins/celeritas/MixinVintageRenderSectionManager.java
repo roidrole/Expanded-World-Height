@@ -1,7 +1,7 @@
 package roidrole.expandedheight.mixins.celeritas;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.client.multiplayer.WorldClient;
+import org.embeddedt.embeddium.impl.render.chunk.vertex.format.ChunkVertexType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
@@ -14,7 +14,7 @@ public abstract class MixinVintageRenderSectionManager {
 		constant = @Constant(intValue = 16),
 		remap = false
 	)
-	private static int useWorldHeight(int constant, @Local(argsOnly = true) WorldClient world){
+	private static int useWorldHeight(int constant, ChunkVertexType vertexType, WorldClient world){
 		return world.getHeight()/16;
 	}
 }

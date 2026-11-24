@@ -1,7 +1,6 @@
 package roidrole.expandedheight.mixins.rltweaker;
 
 import com.charles445.rltweaker.hook.HookWorld;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
@@ -14,7 +13,7 @@ public abstract class MixinHookWorld {
 		constant = @Constant(intValue = 255),
 		remap = false
 	)
-	private static int useWorldHeight(int constant, @Local(argsOnly = true) World world){
+	private static int useWorldHeight(int constant, World world){
 		return world.getHeight() - 1;
 	}
 }

@@ -1,6 +1,5 @@
 package roidrole.expandedheight.mixins.nothirium;
 
-import com.llamalad7.mixinextras.sugar.Local;
 import meldexun.nothirium.mc.util.WorldUtil;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +13,7 @@ public abstract class MixinWorldUtil {
 		constant = @Constant(intValue = 16),
 		remap = false
 	)
-	private static int useActualHeight(int constant, @Local(argsOnly = true) World world){
+	private static int useActualHeight(int constant, World world){
 		return world.getHeight()/16;
 	}
 }
