@@ -21,7 +21,7 @@ public class ConfigManager {
 	// Because of SPacketChunkData and PlayerChunkMapEntry, 512 is the limit
 	// Because of Chunk NBT, 4096 is the limit
 	// Because of BlockPos.toLong, 16384 is the limit
-	public static final int maxHeight = 512;
+	public static final int absoluteHeightLimit = 512;
 
 	public static final Int2IntMap worldHeight;
 
@@ -95,9 +95,9 @@ public class ConfigManager {
 						height |= 0xF;
 						height += 1;
 					}
-					if (height > maxHeight) {
-						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Capping it to " + maxHeight);
-						height = maxHeight;
+					if (height > absoluteHeightLimit) {
+						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Capping it to " + absoluteHeightLimit);
+						height = absoluteHeightLimit;
 					}
 					if (height > globalMaxHeight) {
 						globalMaxHeight = height;
