@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 	modid = Tags.MOD_ID,
 	name = Tags.MOD_NAME,
 	version = Tags.VERSION,
-	dependencies = "required:configanytime;required:mixinbooter"
+	dependencies = "required:configanytime;required:mixinbooter@[10.7,)"
 )
 @Mod.EventBusSubscriber
 public class ExpandedHeight {

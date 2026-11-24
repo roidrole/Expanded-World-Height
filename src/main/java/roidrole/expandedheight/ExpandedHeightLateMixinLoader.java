@@ -11,6 +11,7 @@ public class ExpandedHeightLateMixinLoader implements ILateMixinLoader {
 	public List<String> getMixinConfigs() {
 		return Arrays.asList(
 			"mixins.expandedheight.celeritas.json",
+			"mixins.expandedheight.distanthorizons.json",
 			"mixins.expandedheight.fbp.json",
 			"mixins.expandedheight.nothirium.json",
 			"mixins.expandedheight.rltweaker.json",

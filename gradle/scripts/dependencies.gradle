@@ -67,6 +67,7 @@ dependencies {
     compileOnly rfg.deobf('curse.maven:realistic-terrain-generation-237989:2782568')
     compileOnly rfg.deobf('curse.maven:fluidlogged-api-485654:8445863')
     compileOnly rfg.deobf('net.optifine:optifine:1.12.2-HD_U_G5_unpatched_srg')
+    compileOnly rfg.deobf('curse.maven:distant-horizons-508933:9004743')
 
 
     // Example - Dependency descriptor:
