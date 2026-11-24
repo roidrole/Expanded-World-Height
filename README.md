@@ -13,8 +13,5 @@ You shouldn't need to depend on this mod for anything. Just make sure to use Wor
 ## Modpack devs
 For better results, you should consider overhauling worldgen to benefit from the additional world height. Worldgen mods tend to assume 255 to be the build limit. If they do, make an issue so they can get patched.
 
-## Known Issues
-- Alfheim: For scheduling light updates, it packs a `long` and allocates 8 bits to height, hard-capping height to 256 possible states. Currently working on it with the dev
-
 ## Credits
 - __sayys, for creating Depths Update, which was a reference on how to get higher worlds to work

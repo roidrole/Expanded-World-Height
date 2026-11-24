@@ -6,6 +6,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
+import roidrole.expandedheight.ExpandedHeight;
 
 import java.io.*;
 
@@ -91,12 +92,12 @@ public class ConfigManager {
 					int name = Integer.parseInt(jsonReader.nextName());
 					int height = jsonReader.nextInt();
 					if ((height & 0xF) != 0){
-						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Should be a multiple of 16!");
+						ExpandedHeight.LOGGER.error("Trying to set an invalid world height of {} for dimension {}! Should be a multiple of 16!", height, name);
 						height |= 0xF;
 						height += 1;
 					}
 					if (height > absoluteHeightLimit) {
-						System.err.println("Trying to set an invalid world height of " + height + "for dimension "+ name +"! Capping it to " + absoluteHeightLimit);
+						ExpandedHeight.LOGGER.error("Trying to set an invalid world height of {} for dimension {}! Capping it to " + absoluteHeightLimit, height, name);
 						height = absoluteHeightLimit;
 					}
 					if (height > globalMaxHeight) {
