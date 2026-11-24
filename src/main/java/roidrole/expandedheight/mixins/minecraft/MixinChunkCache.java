@@ -16,13 +16,23 @@ public abstract class MixinChunkCache {
 	protected World world;
 
 	@ModifyConstant(
-		method = {"getBlockState", "isSideSolid"},
+		method = "getBlockState",
+		constant = @Constant(
+			intValue = 256
+		)
+	)
+	private int actualHeight(int constant){
+		return this.world.getHeight();
+	}
+
+	@ModifyConstant(
+		method = "isSideSolid",
 		constant = @Constant(
 			intValue = 256
 		),
 		remap = false
 	)
-	private int actualHeight(int constant){
+	private int actualHeightNoRemap(int constant){
 		return this.world.getHeight();
 	}
 
