@@ -2,7 +2,6 @@ package roidrole.expandedheight.fluidlogged;
 
 import git.jbredwards.fluidlogged_api.api.capability.IFluidStateCapability;
 import git.jbredwards.fluidlogged_api.api.capability.IFluidStateContainer;
-import git.jbredwards.fluidlogged_api.mod.common.capability.FluidStateCapabilityVanilla;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
@@ -12,7 +11,7 @@ import roidrole.expandedheight.config.ConfigManager;
 import javax.annotation.Nonnull;
 
 public class ExtendedHeightFluidStateCapability implements IFluidStateCapability {
-	private final FluidStateCapabilityVanilla[] parts;
+	private final HeightOffsetFluidStateContainer[] parts;
 	private final int chunkX;
 	private final int chunkZ;
 
@@ -28,9 +27,9 @@ public class ExtendedHeightFluidStateCapability implements IFluidStateCapability
 			height = world.getHeight();
 		}
 		int partCount = ((height - 1)/256) + 1;
-		this.parts = new FluidStateCapabilityVanilla[partCount];
+		this.parts = new HeightOffsetFluidStateContainer[partCount];
 		for (int i = 0; i < partCount; i++) {
-			parts[i] = new FluidStateCapabilityVanilla(this.chunkX, this.chunkZ);
+			parts[i] = new HeightOffsetFluidStateContainer(this.chunkX, this.chunkZ, i);
 		}
 	}
 
@@ -47,7 +46,7 @@ public class ExtendedHeightFluidStateCapability implements IFluidStateCapability
 	@Override
 	public NBTBase serializeNBT() {
 		NBTTagList list = new NBTTagList();
-		for (FluidStateCapabilityVanilla part : parts){
+		for (HeightOffsetFluidStateContainer part : parts){
 			list.appendTag(part.serializeNBT());
 		}
 		return list;
@@ -61,7 +60,7 @@ public class ExtendedHeightFluidStateCapability implements IFluidStateCapability
 		NBTTagList list = (NBTTagList) nbt;
 		int length = list.tagCount();
 		for (int i = 0; i < length; i++) {
-			FluidStateCapabilityVanilla cap = new FluidStateCapabilityVanilla(this.chunkX, this.chunkZ);
+			HeightOffsetFluidStateContainer cap = new HeightOffsetFluidStateContainer(this.chunkX, this.chunkZ, i);
 			cap.deserializeNBT(list.get(i));
 			parts[i] = cap;
 		}
