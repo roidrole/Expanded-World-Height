@@ -15,3 +15,10 @@ For better results, you should consider overhauling worldgen to benefit from the
 
 ## Credits
 - __sayys, for creating Depths Update, which was a reference on how to get higher worlds to work
+- BriefMariGold, for adding a few patches to Depths Update
+- MasterEnderman, for making the wonderful logo
+
+All the people who tested the early builds of the mod and reported issues:
+- Penteractgaming
+- BriefMarigold4
+- hydratedbean
