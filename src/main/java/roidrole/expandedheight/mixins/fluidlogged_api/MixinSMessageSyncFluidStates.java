@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(SMessageSyncFluidStates.class)
-public class MixinSMessageSyncFluidStates {
+public abstract class MixinSMessageSyncFluidStates {
 	@Redirect(
 		method = "<init>(IIILgit/jbredwards/fluidlogged_api/api/capability/IFluidStateCapability;)V",
 		at = @At(
