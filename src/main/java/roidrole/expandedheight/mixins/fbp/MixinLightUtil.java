@@ -1,14 +1,19 @@
 package roidrole.expandedheight.mixins.fbp;
 
-import dev.redstudio.fbp.FBP;
-import dev.redstudio.fbp.renderer.light.LightUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
-@Mixin(LightUtil.class)
+@Pseudo
+@Mixin(targets = {
+	//Classes as string because class file 69 breaks runClient
+	"dev.redstudio.fbp.renderer.light.LightUtil",
+	"com.fbp.renderer.light.LightUtil"
+})
 @SideOnly(Side.CLIENT)
 public abstract class MixinLightUtil {
 	@ModifyConstant(
@@ -17,7 +22,7 @@ public abstract class MixinLightUtil {
 		remap = false
 	)
 	private static int useWorldHeightMinusOne(int constant){
-		return FBP.MC.player.world.getHeight() - 1;
+		return Minecraft.getMinecraft().world.getHeight() - 1;
 	}
 	@ModifyConstant(
 		method = "getCombinedLight(III)I",
@@ -25,6 +30,6 @@ public abstract class MixinLightUtil {
 		remap = false
 	)
 	private static int useWorldHeight(int constant){
-		return FBP.MC.player.world.getHeight();
+		return Minecraft.getMinecraft().world.getHeight();
 	}
 }

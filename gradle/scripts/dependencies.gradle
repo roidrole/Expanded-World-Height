@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.cleanroommc:configanytime:3.0'
 
 
-    //Celeritas requires running in Prism
+    //Celeritas and Fancier Block Particles requires running in Prism
     runtimeOnly 'curse.maven:reid-629017:8029704'
     //runtimeOnly 'curse.maven:nothirium-624960:7441674'
     //runtimeOnly 'curse.maven:renderlib-624967:6461209'
@@ -62,6 +62,7 @@ dependencies {
     compileOnly rfg.deobf('curse.maven:renderlib-624967:6461209')
     compileOnly rfg.deobf('curse.maven:alfheim-lighting-engine-910715:6687458')
     compileOnly rfg.deobf('curse.maven:fbp-666575:7287527')
+    compileOnly rfg.deobf('curse.maven:fanciest-block-particles-1653899:8655640')
     compileOnly rfg.deobf('curse.maven:red-core-873867:7455761')
     compileOnly rfg.deobf('curse.maven:rltweaker2-734347:6518808')
     compileOnly rfg.deobf('curse.maven:realistic-terrain-generation-237989:2782568')
