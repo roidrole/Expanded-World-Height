@@ -15,7 +15,8 @@ public class ExpandedHeightLateMixinLoader implements ILateMixinLoader {
 			"mixins.expandedheight.fbp.json",
 			"mixins.expandedheight.nothirium.json",
 			"mixins.expandedheight.rltweaker.json",
-			"mixins.expandedheight.rtg.json"
+			"mixins.expandedheight.rtg.json",
+			"mixins.expandedheight.tfc.json"
 		);
 	}
 
