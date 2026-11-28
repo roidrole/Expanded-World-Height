@@ -4,6 +4,9 @@
 	"refmap": "mixins.expandedheight.refmap.json",
 	"target": "@env(DEFAULT)",
 	"minVersion": "0.8.5",
+	"mixinextras": {
+		"minVersion": "0.5.0"
+	},
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"MixinAnvilChunkLoader",
