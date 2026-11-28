@@ -3,7 +3,6 @@ package roidrole.expandedheight.mixins.minecraft;
 import net.minecraft.world.WorldProvider;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -12,18 +11,16 @@ import roidrole.expandedheight.config.ConfigManager;
 
 @Mixin(WorldProvider.class)
 public abstract class MixinWorldProvider {
-	@Shadow(remap = false)
-	public abstract int getDimension();
-
 	@Unique
 	private int expandedheight_height;
 
 	@Inject(
-		method = "<init>",
-		at = @At("TAIL")
+		method = "setDimension",
+		at = @At("TAIL"),
+		remap = false
 	)
-	private void setHeight(CallbackInfo ci){
-		this.expandedheight_height = ConfigManager.worldHeight.get(this.getDimension());
+	private void setHeight(int dim, CallbackInfo ci){
+		this.expandedheight_height = ConfigManager.worldHeight.get(dim);
 	}
 
 	/**
